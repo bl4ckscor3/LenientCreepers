@@ -6,18 +6,18 @@ import java.util.List;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntityCreeper;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Config.Type;
 import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.event.world.ExplosionEvent;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.ModMetadata;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+@EventBusSubscriber
 @Mod(modid=LenientCreepers.MOD_ID, name=LenientCreepers.NAME, version=LenientCreepers.VERSION, acceptedMinecraftVersions="[" + LenientCreepers.MC_VERSION + "]")
 public class LenientCreepers
 {
@@ -25,9 +25,6 @@ public class LenientCreepers
 	public static final String NAME = "Lenient Creepers";
 	public static final String VERSION = "v1.0";
 	public static final String MC_VERSION = "1.12"; //1.12.1 and 1.12.2 also work
-	public static final String GUI_FACTORY = "bl4ckscor3.mod.lenientcreepers.gui.GUIFactory";
-	@Instance(MOD_ID)
-	public static LenientCreepers instance;
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
@@ -40,12 +37,10 @@ public class LenientCreepers
 		meta.modId = MOD_ID;
 		meta.name = NAME;
 		meta.version = VERSION;
-
-		MinecraftForge.EVENT_BUS.register(this);
 	}
 
 	@SubscribeEvent
-	public void onExplosionDetonate(ExplosionEvent.Detonate event)
+	public static void onExplosionDetonate(ExplosionEvent.Detonate event)
 	{
 		if(event.getExplosion().getExplosivePlacedBy() != null && event.getExplosion().getExplosivePlacedBy() instanceof EntityCreeper)
 		{
@@ -63,7 +58,7 @@ public class LenientCreepers
 	}
 
 	@SubscribeEvent
-	public void onConfigChanged(ConfigChangedEvent event)
+	public static void onConfigChanged(ConfigChangedEvent event)
 	{
 		if(event.getModID().equals(MOD_ID))
 			ConfigManager.load(MOD_ID, Type.INSTANCE);
