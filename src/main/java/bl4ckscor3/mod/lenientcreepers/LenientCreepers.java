@@ -3,8 +3,8 @@ package bl4ckscor3.mod.lenientcreepers;
 import java.util.List;
 
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.item.EntityItem;
-import net.minecraft.entity.monster.EntityCreeper;
+import net.minecraft.entity.item.ItemEntity;
+import net.minecraft.entity.monster.CreeperEntity;
 import net.minecraftforge.event.world.ExplosionEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -26,7 +26,7 @@ public class LenientCreepers
 	@SubscribeEvent
 	public static void onExplosionDetonate(ExplosionEvent.Detonate event)
 	{
-		if(event.getExplosion().getExplosivePlacedBy() != null && event.getExplosion().getExplosivePlacedBy() instanceof EntityCreeper)
+		if(event.getExplosion().getExplosivePlacedBy() != null && event.getExplosion().getExplosivePlacedBy() instanceof CreeperEntity)
 		{
 			if(!Configuration.onlyWithMobGriefingGamerule() || (Configuration.onlyWithMobGriefingGamerule() && !event.getExplosion().getExplosivePlacedBy().getEntityWorld().getGameRules().getBoolean("mobGriefing")))
 			{
@@ -34,7 +34,7 @@ public class LenientCreepers
 
 				for(int i = 0; i < affected.size(); i++)
 				{
-					if(affected.get(i) instanceof EntityItem)
+					if(affected.get(i) instanceof ItemEntity)
 						affected.remove(i);
 				}
 			}
