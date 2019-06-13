@@ -3,7 +3,7 @@ loaderVersion="[25,)" #mandatory
 
 [[mods]] #mandatory
 	modId="lenientcreepers" #mandatory
-	version="v1.0" #mandatory
+	version="v1.0.1" #mandatory
 	displayName="LenientCreepers" #mandatory
 	description='''Makes creepers not destroy already dropped items.''' #mandatory
 	issueTrackerURL="http://github.com/bl4ckscor3/LenientCreepers/issues"

@@ -28,7 +28,6 @@ public class LenientCreepers
 	{
 		if(event.getExplosion().getExplosivePlacedBy() != null && event.getExplosion().getExplosivePlacedBy() instanceof EntityCreeper)
 		{
-			System.out.println(Configuration.onlyWithMobGriefingGamerule());
 			if(!Configuration.onlyWithMobGriefingGamerule() || (Configuration.onlyWithMobGriefingGamerule() && !event.getExplosion().getExplosivePlacedBy().getEntityWorld().getGameRules().getBoolean("mobGriefing")))
 			{
 				List<Entity> affected = event.getAffectedEntities();
