@@ -5,6 +5,7 @@ import java.util.List;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.monster.CreeperEntity;
+import net.minecraft.world.GameRules;
 import net.minecraftforge.event.world.ExplosionEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -28,7 +29,7 @@ public class LenientCreepers
 	{
 		if(event.getExplosion().getExplosivePlacedBy() != null && event.getExplosion().getExplosivePlacedBy() instanceof CreeperEntity)
 		{
-			if(!Configuration.onlyWithMobGriefingGamerule() || (Configuration.onlyWithMobGriefingGamerule() && !event.getExplosion().getExplosivePlacedBy().getEntityWorld().getGameRules().getBoolean("mobGriefing")))
+			if(!Configuration.onlyWithMobGriefingGamerule() || (Configuration.onlyWithMobGriefingGamerule() && !event.getExplosion().getExplosivePlacedBy().getEntityWorld().getGameRules().getBoolean(GameRules.MOB_GRIEFING)))
 			{
 				List<Entity> affected = event.getAffectedEntities();
 
