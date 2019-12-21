@@ -13,12 +13,10 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.config.ModConfig;
 
-@Mod(LenientCreepers.MOD_ID)
+@Mod("lenientcreepers")
 @EventBusSubscriber
 public class LenientCreepers
 {
-	public static final String MOD_ID = "lenientcreepers";
-
 	public LenientCreepers()
 	{
 		ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, Configuration.CONFIG_SPEC);
@@ -29,7 +27,7 @@ public class LenientCreepers
 	{
 		if(event.getExplosion().getExplosivePlacedBy() != null && event.getExplosion().getExplosivePlacedBy() instanceof CreeperEntity)
 		{
-			if(!Configuration.onlyWithMobGriefingGamerule() || (Configuration.onlyWithMobGriefingGamerule() && !event.getExplosion().getExplosivePlacedBy().getEntityWorld().getGameRules().getBoolean(GameRules.MOB_GRIEFING)))
+			if(!Configuration.onlyWithMobGriefingGamerule() || !event.getExplosion().getExplosivePlacedBy().getEntityWorld().getGameRules().getBoolean(GameRules.MOB_GRIEFING))
 			{
 				List<Entity> affected = event.getAffectedEntities();
 
