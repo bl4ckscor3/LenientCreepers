@@ -1,5 +1,5 @@
 modLoader="javafml" #mandatory
-loaderVersion="[30,)" #mandatory
+loaderVersion="[32,)" #mandatory
 
 [[mods]] #mandatory
 	modId="lenientcreepers" #mandatory
@@ -7,19 +7,19 @@ loaderVersion="[30,)" #mandatory
 	displayName="LenientCreepers" #mandatory
 	description='''Makes creepers not destroy already dropped items.''' #mandatory
 	issueTrackerURL="http://github.com/bl4ckscor3/LenientCreepers/issues"
-	displayURL="http://minecraft.curseforge.com/projects/lenient-creepers"
+	displayURL="https://curseforge.com/minecraft/mc-mods/lenient-creepers"
 	authors="bl4ckscor3"
 
 [[dependencies.lenientcreepers]]
     modId="forge"
     mandatory=true
-    versionRange="[30,)"
+    versionRange="[32,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.lenientcreepers]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.15,1.16)"
+    versionRange="[1.16,1.17)"
     ordering="NONE"
     side="BOTH"

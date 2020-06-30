@@ -1,1 +1,1 @@
-Download link: https://minecraft.curseforge.com/projects/lenient-creepers
+Download link: https://curseforge.com/minecraft/mc-mods/lenient-creepers
