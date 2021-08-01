@@ -1,26 +1,26 @@
-modLoader="javafml" #mandatory
-loaderVersion="[33,)" #mandatory
-license="GNU GPL v3.0 https://github.com/bl4ckscor3/LenientCreepers/blob/1.16/LICENSE"
+modLoader="javafml"
+loaderVersion="[37,)"
+license="GNU GPL v3.0 https://github.com/bl4ckscor3/LenientCreepers/blob/1.17/LICENSE"
+issueTrackerURL="http://github.com/bl4ckscor3/LenientCreepers/issues"
 
-[[mods]] #mandatory
-	modId="lenientcreepers" #mandatory
-	version="v1.0.1" #mandatory
-	displayName="LenientCreepers" #mandatory
-	description='''Makes creepers not destroy already dropped items.''' #mandatory
-	issueTrackerURL="http://github.com/bl4ckscor3/LenientCreepers/issues"
+[[mods]]
+	modId="lenientcreepers"
+	version="${file.jarVersion}"
+	displayName="LenientCreepers"
+	description='''Makes creepers not destroy already dropped items.'''
 	displayURL="https://curseforge.com/minecraft/mc-mods/lenient-creepers"
 	authors="bl4ckscor3"
 
 [[dependencies.lenientcreepers]]
     modId="forge"
     mandatory=true
-    versionRange="[33,)"
+    versionRange="[37,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.lenientcreepers]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16,1.17)"
+    versionRange="[1.17,1.18)"
     ordering="NONE"
     side="BOTH"
