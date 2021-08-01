@@ -25,9 +25,9 @@ public class LenientCreepers
 	@SubscribeEvent
 	public static void onExplosionDetonate(ExplosionEvent.Detonate event)
 	{
-		if(event.getExplosion().getExplosivePlacedBy() != null && event.getExplosion().getExplosivePlacedBy() instanceof CreeperEntity)
+		if(event.getExplosion().getSourceMob() != null && event.getExplosion().getSourceMob() instanceof CreeperEntity)
 		{
-			if(!Configuration.onlyWithMobGriefingGamerule() || !event.getExplosion().getExplosivePlacedBy().getEntityWorld().getGameRules().getBoolean(GameRules.MOB_GRIEFING))
+			if(!Configuration.onlyWithMobGriefingGamerule() || !event.getExplosion().getSourceMob().getCommandSenderWorld().getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING))
 			{
 				List<Entity> affected = event.getAffectedEntities();
 
