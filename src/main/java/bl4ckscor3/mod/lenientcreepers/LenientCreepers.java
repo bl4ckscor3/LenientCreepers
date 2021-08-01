@@ -1,8 +1,5 @@
 package bl4ckscor3.mod.lenientcreepers;
 
-import java.util.List;
-
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.level.GameRules;
@@ -25,18 +22,10 @@ public class LenientCreepers
 	@SubscribeEvent
 	public static void onExplosionDetonate(ExplosionEvent.Detonate event)
 	{
-		if(event.getExplosion().getSourceMob() != null && event.getExplosion().getSourceMob() instanceof Creeper)
+		if(event.getExplosion().getSourceMob() instanceof Creeper creeper)
 		{
-			if(!Configuration.onlyWithMobGriefingGamerule() || !event.getExplosion().getSourceMob().getCommandSenderWorld().getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING))
-			{
-				List<Entity> affected = event.getAffectedEntities();
-
-				for(int i = 0; i < affected.size(); i++)
-				{
-					if(affected.get(i) instanceof ItemEntity)
-						affected.remove(i);
-				}
-			}
+			if(!Configuration.onlyWithMobGriefingGamerule() || !creeper.getCommandSenderWorld().getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING))
+				event.getAffectedEntities().removeIf(e -> e instanceof ItemEntity);
 		}
 	}
 }
