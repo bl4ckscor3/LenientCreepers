@@ -19,7 +19,7 @@ public class LenientCreepers {
 
 	@SubscribeEvent
 	public static void onExplosionDetonate(ExplosionEvent.Detonate event) {
-		if (event.getExplosion().getSourceMob() instanceof Creeper creeper) {
+		if (event.getExplosion().getDirectSourceEntity() instanceof Creeper creeper) {
 			if (!Configuration.onlyWithMobGriefingGamerule() || !creeper.getCommandSenderWorld().getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING))
 				event.getAffectedEntities().removeIf(e -> e instanceof ItemEntity);
 		}
