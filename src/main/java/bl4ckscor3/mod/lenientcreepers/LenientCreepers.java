@@ -12,19 +12,15 @@ import net.minecraftforge.fml.config.ModConfig;
 
 @Mod("lenientcreepers")
 @EventBusSubscriber
-public class LenientCreepers
-{
-	public LenientCreepers()
-	{
+public class LenientCreepers {
+	public LenientCreepers() {
 		ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, Configuration.CONFIG_SPEC);
 	}
 
 	@SubscribeEvent
-	public static void onExplosionDetonate(ExplosionEvent.Detonate event)
-	{
-		if(event.getExplosion().getSourceMob() instanceof Creeper creeper)
-		{
-			if(!Configuration.onlyWithMobGriefingGamerule() || !creeper.getCommandSenderWorld().getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING))
+	public static void onExplosionDetonate(ExplosionEvent.Detonate event) {
+		if (event.getExplosion().getSourceMob() instanceof Creeper creeper) {
+			if (!Configuration.onlyWithMobGriefingGamerule() || !creeper.getCommandSenderWorld().getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING))
 				event.getAffectedEntities().removeIf(e -> e instanceof ItemEntity);
 		}
 	}
