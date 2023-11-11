@@ -1,23 +1,22 @@
 package bl4ckscor3.mod.lenientcreepers;
 
+import net.neoforged.neoforge.common.ModConfigSpec;
+import net.neoforged.neoforge.common.ModConfigSpec.BooleanValue;
 import org.apache.commons.lang3.tuple.Pair;
 
-import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
-
 public class Configuration {
-	public static final ForgeConfigSpec CONFIG_SPEC;
+	public static final ModConfigSpec CONFIG_SPEC;
 	private static final Configuration CONFIG;
 	public final BooleanValue onlyWithMobGriefingGamerule;
 
 	static {
-		Pair<Configuration, ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(Configuration::new);
+		Pair<Configuration, ModConfigSpec> specPair = new ModConfigSpec.Builder().configure(Configuration::new);
 
 		CONFIG_SPEC = specPair.getRight();
 		CONFIG = specPair.getLeft();
 	}
 
-	Configuration(ForgeConfigSpec.Builder builder) {
+	Configuration(ModConfigSpec.Builder builder) {
 		//@formatter:off
 		onlyWithMobGriefingGamerule = builder
 				.comment("If this is set to false, items will not be destroyed regardless of what the gamerule mobGriefing is set to")
