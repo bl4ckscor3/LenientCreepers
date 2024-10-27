@@ -9,7 +9,7 @@ version = '1.0.2'
 group = 'bl4ckscor3.mod.lenientcreepers'
 
 base {
-	archivesName = 'lenientcreepers-1.21'
+	archivesName = 'lenientcreepers-1.21.3'
 }
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
@@ -27,12 +27,12 @@ runs {
 
     server {
         workingDirectory project.file('run/server')
-        programArgument '-nogui'
+        argument '-nogui'
     }
 }
 
 dependencies {
-	implementation 'net.neoforged:neoforge:21.0.2-beta'
+	implementation 'net.neoforged:neoforge:21.3.4-beta'
 }
 
 tasks.named('jar', Jar).configure {
