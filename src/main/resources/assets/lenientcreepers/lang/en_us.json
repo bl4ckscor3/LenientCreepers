@@ -1,0 +1,4 @@
+{
+	"lenientcreepers.configuration.onlyWithMobGriefingGamerule": "Only with \"Allow destructive mob actions\" gamerule",
+	"lenientcreepers.configuration.onlyWithMobGriefingGamerule.tooltip": "If this is set to false, items will not be destroyed regardless of what the gamerule \"mobGriefing\" is set to."
+}
