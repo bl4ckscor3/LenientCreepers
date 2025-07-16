@@ -10,9 +10,11 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.neoforge.event.level.ExplosionEvent;
 
-@Mod("lenientcreepers")
+@Mod(LenientCreepers.MODID)
 @EventBusSubscriber
 public class LenientCreepers {
+	public static final String MODID = "lenientcreepers";
+
 	public LenientCreepers(ModContainer modContainer) {
 		modContainer.registerConfig(ModConfig.Type.SERVER, Configuration.CONFIG_SPEC);
 	}

@@ -1,0 +1,4 @@
+{
+	"lenientcreepers.configuration.onlyWithMobGriefingGamerule": "Nur mit \"Zerstörung durch Kreaturen\"-Spielregel",
+	"lenientcreepers.configuration.onlyWithMobGriefingGamerule.tooltip": "Wenn dies deaktiviert ist, werden Items zerstört, egal welchen Wert die \"mobGriefing\"-Spielregel hat."
+}
