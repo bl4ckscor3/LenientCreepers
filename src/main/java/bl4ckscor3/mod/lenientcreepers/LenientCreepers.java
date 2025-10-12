@@ -22,7 +22,7 @@ public class LenientCreepers {
 	@SubscribeEvent
 	public static void onExplosionDetonate(ExplosionEvent.Detonate event) {
 		if (event.getExplosion().getDirectSourceEntity() instanceof Creeper creeper) {
-			if (!Configuration.onlyWithMobGriefingGamerule() || !creeper.getServer().getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING))
+			if (!Configuration.onlyWithMobGriefingGamerule() || !creeper.level().getServer().getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING))
 				event.getAffectedEntities().removeIf(ItemEntity.class::isInstance);
 		}
 	}
