@@ -1,8 +1,9 @@
 package bl4ckscor3.mod.lenientcreepers;
 
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.Creeper;
-import net.minecraft.world.level.GameRules;
+import net.minecraft.world.level.gamerules.GameRules;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -21,8 +22,8 @@ public class LenientCreepers {
 
 	@SubscribeEvent
 	public static void onExplosionDetonate(ExplosionEvent.Detonate event) {
-		if (event.getExplosion().getDirectSourceEntity() instanceof Creeper creeper) {
-			if (!Configuration.onlyWithMobGriefingGamerule() || !creeper.level().getServer().getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING))
+		if (event.getExplosion().getDirectSourceEntity() instanceof Creeper creeper && creeper.level() instanceof ServerLevel level) {
+			if (!Configuration.onlyWithMobGriefingGamerule() || !level.getGameRules().get(GameRules.MOB_GRIEFING))
 				event.getAffectedEntities().removeIf(ItemEntity.class::isInstance);
 		}
 	}
