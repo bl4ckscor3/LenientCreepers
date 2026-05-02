@@ -7,8 +7,8 @@ import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 
 @Mod(value = LenientCreepers.MODID, dist = Dist.CLIENT)
-public class LenientCreepersClient {
-	public LenientCreepersClient(ModContainer modContainer) {
+public class NeoClientEntrypoint {
+	public NeoClientEntrypoint(ModContainer modContainer) {
 		modContainer.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
 	}
 }

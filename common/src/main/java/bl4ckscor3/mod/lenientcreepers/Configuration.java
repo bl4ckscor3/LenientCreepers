@@ -20,8 +20,8 @@ public class Configuration {
 	Configuration(ModConfigSpec.Builder builder) {
 		//@formatter:off
 		onlyWithMobGriefingGamerule = builder
-				.comment("If this is set to false, items will not be destroyed regardless of what the gamerule mobGriefing is set to.")
-				.define("onlyWithMobGriefingGamerule", true);
+			.comment("If this is set to false, items will not be destroyed regardless of what the gamerule mobGriefing is set to.")
+			.define("onlyWithMobGriefingGamerule", true);
 		//@formatter:on
 	}
 
