@@ -11,7 +11,7 @@ import net.neoforged.neoforge.event.level.ExplosionEvent;
 @EventBusSubscriber
 public class NeoEntrypoint {
 	public NeoEntrypoint(ModContainer modContainer) {
-		modContainer.registerConfig(ModConfig.Type.SERVER, Configuration.CONFIG_SPEC);
+		modContainer.registerConfig(ModConfig.Type.SYNCED, Configuration.CONFIG_SPEC);
 	}
 
 	@SubscribeEvent
